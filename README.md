@@ -1,55 +1,101 @@
-# pandas-challenge-1
-Challenge#4
+# Pandas Challenge Project
+Module 4 Challenge 3 - DataFrame Transformation
 
-Challenge Instructions
-Part 1: Explore the Data
-In this part, you will import the data and use Pandas to learn more about the dataset.
+## Overview
 
-Import the data from the CSV file.
+This project focuses on transforming a DataFrame using the Pandas library. The main tasks include renaming columns to make them more presentable and handling monetary columns with specific formatting requirements.
 
-View the column names.
+### Args
 
-Use the describe function to gather some basic statistics.
+- **For Column Renaming:**
+  - `presentable_columns (dict)`: A dictionary mapping original column names to their new, more descriptive names.
+  - `money_columns (dict)`: A dictionary mapping original monetary column names to their formatted names.
 
-Use the provided space to explore and make yourself familiar with the data. Feel free to create more cells as needed.
+### Returns
 
-Answer the following questions using Pandas:
+- **Updated DataFrame:**
+  - A DataFrame with renamed columns as specified by `presentable_columns` and `money_columns`.
 
-What three item categories had the most entries?
+### Examples
 
-For the category with the most entries, which subcategory had the most entries?
+- **General Renaming:**
+  ```python
+  >>> df.rename(columns=presentable_columns, inplace=True)
 
-Which five clients had the most entries in the data?
+## PseudoCode
+Column Renaming Setup
+Import necessary libraries and modules.
+Define the presentable_columns and money_columns dictionaries.
+Load the DataFrame.
+Apply general renaming using presentable_columns.
+Apply monetary format renaming using money_columns.
+Display the updated DataFrame to verify changes.
+Main Program Execution
+Load the DataFrame.
+Apply column renaming transformations.
+Print the updated DataFrame.
 
-Store the client ids of those top 5 clients in a list.
-How many total units (the qty column) did the client with the most entries order?
+## Features
+Column Renaming:
+Renames columns to reflect more descriptive names for better readability.
+Monetary Column Formatting:
+Updates column names related to monetary values to reflect their unit in millions.
+DataFrame Update:
+Applies renaming transformations directly to the DataFrame.
+Formatted Output:
+Displays the updated DataFrame to verify the applied changes.
 
-Part 2: Transform the Data
-Now that you have a better understanding of the data you will be asked to transform the data for better and easier analysis.
+## Requirements
+Python 3.6 or later
+Pandas library
 
-Create a column that calculates the subtotal for each line using the unit_price and the qty.
 
-Create a column for shipping price. Assume a shipping price of $7 per pound for orders over 50 pounds and $10 per pound for items 50 pounds or under.
+## Setup
+Clone this repository to your local machine:
+sh
+Copy code
+git clone https://github.com/sack2116/pandas-challenge-1.git
+Navigate to the project directory:
+sh
+Copy code
+cd pandas-challenge-1
+Install the required libraries:
+sh
+Copy code
+pip install pandas
 
-Create a column for the total price using the subtotal and the shipping price along with a sales tax of 9.25%.
 
-Create a column for the cost of each line using unit cost, qty, and shipping price (assume the shipping cost is exactly what is charged to the client).
+## Usage
+To run the DataFrame transformation, execute the following script:
+sh
+Copy code
+- python transform_dataframe.py
+- Make sure your DataFrame is properly loaded in the script.
+- Run the transform_dataframe.py file to apply the column renaming transformations.
+- Verify the updated DataFrame to ensure all transformations have been applied correctly.
 
-Create a column for the profit of each line using line cost and line price.
+## Code Structure
+transform_dataframe.py: Contains the main script for renaming columns and applying transformations.
+data_preprocessing.py: Optional module for additional data preprocessing steps (if applicable).
 
-Part 3: Confirm Your Work
-After transforming data, it's always a good idea to verify the results. You have email receipts showing the total prices for 3 orders.
+## How it Works
+1. Starting the Program:
 
-Order ID 2742071 had a total price of $152,811.89 Order ID 2173913 had a total price of $162,388.71 Order ID 6128929 had a total price of $923,441.25
+* The program begins by importing necessary libraries and loading the DataFrame.
 
-Confirm that your calculations match the receipts. Remember, each order has multiple lines.
-Part 4: Summarize and Analyze
-Use the new columns with confirmed values to find the following information.
+2. Column Renaming Functions:
 
-How much did each of the top 5 clients by quantity spend? Use your work from Part 1 for client ids?
+* presentable_columns renames columns to user-friendly names.
+* money_columns updates column names related to monetary values.
 
-Create a summary DataFrame showing the totals for the top 5 clients with the following information: total units purchased, total shipping price, total revenue, and total profit.
 
-Create a function to change the currency to millions of dollars. Format the data and rename the columns to names suitable for presentation. Then, sort the DataFrame in descending order by total profits.
+3. DataFrame Update:
 
-Write a brief 2-3 sentence summary of your findings.
+* The transformations are applied directly to the DataFrame using Pandas' rename method.
+* The updated DataFrame is displayed for verification.
+
+
+4. Results:
+
+* The program completes execution after applying all specified column renaming and formatting transformations.
+* The final DataFrame with updated column names is displayed.
